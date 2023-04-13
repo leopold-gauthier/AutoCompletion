@@ -12,12 +12,14 @@ if (search) {
         if (search.value != '') {
 
             title.style.display = "none";
-            // console.log('recherche.php/?search=' + search.value);
+            // fetch la page associer au nom et de son coté la page recherche.php me renvoi un json qu'il a récupérer en sql
             fetch('recherche.php/?search=' + search.value)
                 .then((response) => {
-
+                    // je return le json dans le data
                     return response.json();
+
                 })
+                // la variable "data" contient les données extraites de la réponse JSON 
                 .then((data) => {
                     data.forEach(element => {
                         let e = document.createElement('p');
@@ -129,8 +131,3 @@ fetch('recherche.php/?id=' + id[1])
 
         });
     })
-
-if(search.value !== ""){
-    console.log("taper");
-
-}
